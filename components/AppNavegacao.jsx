@@ -7,18 +7,22 @@ import MaterialCommunityIcons from "@expo/vector-icons/MaterialCommunityIcons";
 
 import Formulario from "./Formulario";
 import Lista from "./Lista";
+
 const Tab = createBottomTabNavigator();
+
+
+
 export default function AppNavegacao() {
   return (
     <NavigationContainer>
       <Tab.Navigator
         screenOptions={{
           tabBarStyle: {
-            backgroundColor: "#121212",
+            backgroundColor: "#0b134a",
             borderTopColor: "transparent",
           },
           tabBarActiveTintColor: "white",
-          tabBarInactiveTintColor: "gray",
+          tabBarInactiveTintColor: "lightgray",
           headerShown: false,
         }}
       >
@@ -38,13 +42,31 @@ export default function AppNavegacao() {
                 />
               );
             },
-            tabBarLabel: ({ focused }) =>
-              focused ? <></> : <Text style={{ color: "gray" }}>Lista</Text>,
+            tabBarLabel: ({ focused, color }) =>
+              focused ? <></> : <Text style={{ color: color }}>Lista</Text>,
           }}
         />
-        <Tab.Screen name="Formulario" component={Formulario} />
+        <Tab.Screen
+          name="Formulario"
+          component={Formulario}
+          options={{
+            tabBarIcon: ({ focused, color, size }) => {
+              iconName = focused ? "clipboard" : "clipboard-outline";
+              size = focused ? size * 1.5 : size;
+              return (
+                <MaterialCommunityIcons
+                  name={iconName}
+                  size={size}
+                  color={color}
+                />
+              );
+            },
+            tabBarLabel: ({ focused, color }) =>
+              focused ? <></> : <Text style={{ color: color }}>Formulário</Text>,
+          }}
+        />
       </Tab.Navigator>
-      
+
     </NavigationContainer>
   );
 }

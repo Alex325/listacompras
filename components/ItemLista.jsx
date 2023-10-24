@@ -2,7 +2,7 @@ import { Alert } from "react-native";
 import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import { excluirItem } from "./dados";
 
-export default function ItemLista({ item, navigation }) {
+export default function ItemLista({ item, navigation, route }) {
 
   function mostrarConfirmacao(item) {
 
@@ -49,21 +49,21 @@ export default function ItemLista({ item, navigation }) {
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: "#fff",
+    backgroundColor: "#fdfdfd",
     marginTop: 10,
+    borderRadius: 10,
     width: "100%",
+    padding: 5
   },
   buttonsContainer: {
     flexDirection: "row-reverse",
-    borderBottomWidth: 1,
-    borderBottomColor: "#CCC",
     paddingBottom: 10,
     marginTop: 10,
   },
   editButton: {
     marginLeft: 10,
     height: 40,
-    backgroundColor: "blue",
+    backgroundColor: "#1313eb",
     borderRadius: 10,
     padding: 10,
     fontSize: 12,
@@ -76,7 +76,7 @@ const styles = StyleSheet.create({
     marginLeft: 10,
     height: 40,
     width: 40,
-    backgroundColor: "red",
+    backgroundColor: "#ed1515",
     borderRadius: 10,
     padding: 10,
     fontSize: 12,

@@ -10,7 +10,7 @@ export default function Lista(props) {
 
   useEffect(()=>{
     getLista().then((lista) => setItens(lista))
-  },[itens])
+  },[itens, props])
 
   return (
     <View style={styles.container}>
@@ -30,7 +30,7 @@ export default function Lista(props) {
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: "#6655CC",
+    backgroundColor: "#18225c",
     alignItems: "center",
     justifyContent: "center",
     flex: 1,
@@ -48,10 +48,9 @@ const styles = StyleSheet.create({
   itemsContainer: {
     marginTop: 5,
     padding: 20,
-    borderTopLeftRadius: 10,
-    borderTopRightRadius: 10,
+    borderRadius: 10,
     alignItems: "stretch",
-    backgroundColor: "#fff",
+    backgroundColor: "#f5f5f5",
   },
   text: {
     textAlign: "center",
