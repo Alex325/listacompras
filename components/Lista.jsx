@@ -44,9 +44,10 @@ const styles = StyleSheet.create({
   },
   scrollContainer: {
     width: "85%",
+    marginTop: 5,
+    marginBottom: 20,
   },
   itemsContainer: {
-    marginTop: 5,
     padding: 20,
     borderRadius: 10,
     alignItems: "stretch",
