@@ -7,7 +7,7 @@ export default function ItemLista({ item, navigation, route }) {
   function mostrarConfirmacao(item) {
 
     Alert.alert(
-      'Alert Title',
+      'Confirmação',
       'Tem certeza?',
       [
         {
