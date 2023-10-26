@@ -1,5 +1,4 @@
 import AsyncStorage from "@react-native-async-storage/async-storage";
-import { Alert } from "react-native";
 
 export async function excluirItem(item) {
 
@@ -25,11 +24,10 @@ export async function alterarItem(item) {
     const lista = await getLista();
 
     let i = 0;
-
     
     for (; lista[i].id != item.id; i++){}
     
-    lista[i] = item;
+    lista[i] = item;  
 
     const jsonLista = JSON.stringify(lista);
     await AsyncStorage.setItem("lista", jsonLista);

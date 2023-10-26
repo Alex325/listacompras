@@ -10,11 +10,13 @@ import {
 
 import { salvarItem, alterarItem } from "./dados";
 import ItemLista from "./ItemLista";
+import { useIsFocused } from "@react-navigation/native";
 
 export default function Formulario({ navigation, route }) {
 
   const editMode = Boolean(route.params);
   const editItem = route.params;
+  const isFocused = useIsFocused();
 
   const [descricao, setDescricao] = useState('')
   const [quantidade, setQuantidade] = useState('')
@@ -42,8 +44,7 @@ export default function Formulario({ navigation, route }) {
     route.params = null;
     navigation.navigate('Lista', itemLista);
   }
-  return (
-    < View style={styles.container} >
+  return isFocused ? <View style={styles.container} >
       <Text style={styles.title}>Item para comprar</Text>
       <View style={styles.inputContainer}>
         <TextInput
@@ -63,8 +64,7 @@ export default function Formulario({ navigation, route }) {
           {!editMode ? <Text style={styles.buttonText}>Salvar</Text> : <Text style={styles.buttonText}>Alterar</Text>}
         </TouchableOpacity>
       </View>
-    </View >
-  )
+    </View > : <></>
 }
 
 const styles = StyleSheet.create({
